@@ -1,9 +1,8 @@
 import 'package:api_project/view/home_screen.dart';
-import 'package:api_project/view/register_page.dart';
 import 'package:flutter/material.dart';
 
-class LogIn extends StatelessWidget {
-  const LogIn({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,23 @@ class LogIn extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('customGram'),
+            Text('Register Now'),
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              height: 50,
+              width: 400,
+              child: TextField(
+                decoration: InputDecoration(
+                    labelText: "email",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10))),
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
             SizedBox(
               height: 50,
               width: 400,
@@ -54,7 +69,7 @@ class LogIn extends StatelessWidget {
                         MaterialPageRoute(builder: (ctx) => Home()));
                   },
                   child: Text(
-                    "Log in",
+                    "Sign in",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   )),
             ),
@@ -91,23 +106,17 @@ class LogIn extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton.icon(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (ctx) => RegisterPage()));
-                  },
-                  icon: Icon(
-                    Icons.photo_filter_rounded,
-                    color: Color.fromARGB(255, 41, 107, 161),
-                  ),
-                  label: Text(
-                    'Register',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 41, 107, 161),
-                        letterSpacing: 0,
-                        fontWeight: FontWeight.w900),
-                  ),
-                )
+                Icon(
+                  Icons.facebook_outlined,
+                  color: Color.fromARGB(255, 41, 107, 161),
+                ),
+                Text(
+                  'Log in',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 41, 107, 161),
+                      letterSpacing: 0,
+                      fontWeight: FontWeight.w900),
+                ),
               ],
             )
           ],
