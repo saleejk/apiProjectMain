@@ -5,9 +5,11 @@ class UserModel {
   UserModel({this.email, this.username, this.password});
   factory UserModel.fromjson(Map<String, dynamic> json) {
     return UserModel(
-        email: json["email"],
-        username: json["username"],
-        password: json["password"]);
+      email: json["email"],
+      username: json["username"],
+      password: json["password"],
+    );
+    // id: json['id']);
   }
   Map<String, dynamic> tojson() {
     final Map<String, dynamic> data = Map<String, dynamic>();

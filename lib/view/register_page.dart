@@ -1,11 +1,21 @@
+import 'package:api_project/controller/user_controller.dart';
+import 'package:api_project/model/login_model.dart';
 import 'package:api_project/view/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class RegisterPage extends StatefulWidget {
+  RegisterPage({super.key});
 
   @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  @override
   Widget build(BuildContext context) {
+    final userP = Provider.of<UserController>(context, listen: false);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(18.0),
@@ -20,7 +30,8 @@ class RegisterPage extends StatelessWidget {
             SizedBox(
               height: 50,
               width: 400,
-              child: TextField(
+              child: TextFormField(
+                controller: userP.emailC,
                 decoration: InputDecoration(
                     labelText: "email",
                     border: OutlineInputBorder(
@@ -33,7 +44,8 @@ class RegisterPage extends StatelessWidget {
             SizedBox(
               height: 50,
               width: 400,
-              child: TextField(
+              child: TextFormField(
+                controller: userP.usernameC,
                 decoration: InputDecoration(
                     labelText: "Username",
                     border: OutlineInputBorder(
@@ -47,6 +59,7 @@ class RegisterPage extends StatelessWidget {
               height: 50,
               width: 400,
               child: TextField(
+                controller: userP.passwordC,
                 decoration: InputDecoration(
                     labelText: "password",
                     border: OutlineInputBorder(
@@ -65,6 +78,7 @@ class RegisterPage extends StatelessWidget {
                         Color.fromARGB(255, 41, 107, 161)),
                   ),
                   onPressed: () {
+                    userP.registerUser();
                     Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (ctx) => Home()));
                   },
@@ -124,4 +138,6 @@ class RegisterPage extends StatelessWidget {
       ),
     );
   }
+
+  registerUser(BuildContext context) async {}
 }
